@@ -1,0 +1,105 @@
+{
+  "project_info": {
+    "project_number": "236914068030",
+    "firebase_url": "https://tienda-ac03f.firebaseio.com",
+    "project_id": "tienda-ac03f",
+    "storage_bucket": "tienda-ac03f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:236914068030:android:3165ebc917ad49c4",
+        "android_client_info": {
+          "package_name": "com.example.jesusizquierdo.tienda"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "236914068030-3g9v71q6be4ejbni09f9ejqceavegeel.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.jesusizquierdo.tienda",
+            "certificate_hash": "a03c0ef7c6084e66f073d69d38599aed615f4fbe"
+          }
+        },
+        {
+          "client_id": "236914068030-ih68qcjm91tbinet4i0qffg5cuoj2pis.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBlqjH3wxE22ugKoNQPPgiWdTZLka7SMbE"
+        },
+        {
+          "current_key": "AIzaSyDt9yHlVf1y4QpG3bDZXq7wHhdf_YiAmx4"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "236914068030-ih68qcjm91tbinet4i0qffg5cuoj2pis.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:236914068030:android:2cb8b826094bfbf2",
+        "android_client_info": {
+          "package_name": "com.example.jesusizquierdo.tiendamex"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "236914068030-e06kulghdog0fq2rpjcdfl1cto9qjnq5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.jesusizquierdo.tiendamex",
+            "certificate_hash": "a03c0ef7c6084e66f073d69d38599aed615f4fbe"
+          }
+        },
+        {
+          "client_id": "236914068030-ih68qcjm91tbinet4i0qffg5cuoj2pis.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBlqjH3wxE22ugKoNQPPgiWdTZLka7SMbE"
+        },
+        {
+          "current_key": "AIzaSyDt9yHlVf1y4QpG3bDZXq7wHhdf_YiAmx4"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "236914068030-ih68qcjm91tbinet4i0qffg5cuoj2pis.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
