@@ -142,6 +142,7 @@ EditText mEmailField,mPasswordField;
         Person person = new Person(userName);
         FirebaseUser user = firebaseAuth.getCurrentUser();
         if (user != null) {
+
             databaseReference.child(user.getUid()).setValue(person);
         }
         Toast.makeText(Login.this,"Information saved",Toast.LENGTH_SHORT).show();
