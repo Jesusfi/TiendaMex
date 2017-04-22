@@ -12,10 +12,10 @@ public class FoodItem {
     int picture;
 
     public FoodItem(){}
-    public FoodItem(String name,String price){
+    public FoodItem(String name,String price, int picture){
         this.name = name;
         this.price = price;
-        picture = R.drawable.taco;
+        this.picture = picture;
 
 
     }

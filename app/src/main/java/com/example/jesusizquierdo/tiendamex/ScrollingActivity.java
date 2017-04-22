@@ -37,13 +37,13 @@ public class ScrollingActivity extends AppCompatActivity {
 
         ArrayList<FoodItem> foodItemArrayList = new ArrayList<>();
 
-        foodItemArrayList.add(new FoodItem("Taco", "1.99"));
-        foodItemArrayList.add(new FoodItem("Burrito", "1.99"));
-        foodItemArrayList.add(new FoodItem("Quesidilla", "1.99"));
-        foodItemArrayList.add(new FoodItem("Chicken", "1.99"));
-        foodItemArrayList.add(new FoodItem("Taco", "1.99"));
-        foodItemArrayList.add(new FoodItem("Taco", "1.99"));
-        foodItemArrayList.add(new FoodItem("Taco", "1.99"));
+        foodItemArrayList.add(new FoodItem("Taco", "1.99",R.drawable.taco));
+        foodItemArrayList.add(new FoodItem("Burrito", "1.99",R.drawable.burrito));
+        foodItemArrayList.add(new FoodItem("Quesidilla", "1.99",R.drawable.burrito));
+        foodItemArrayList.add(new FoodItem("Chicken", "1.99",R.drawable.taco));
+        foodItemArrayList.add(new FoodItem("Taco", "1.99",R.drawable.taco));
+        foodItemArrayList.add(new FoodItem("Taco", "1.99",R.drawable.taco));
+        foodItemArrayList.add(new FoodItem("Taco", "1.99",R.drawable.taco));
 
         adapter = new RecycleViewFoodAdapter(this, foodItemArrayList);
         recyclerView.setHasFixedSize(true);

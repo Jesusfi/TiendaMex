@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.jesusizquierdo.tiendamex.Classes.FoodItem;
 import com.example.jesusizquierdo.tiendamex.R;
@@ -22,7 +23,7 @@ public class RecycleViewFoodAdapter extends RecyclerView.Adapter<RecycleViewFood
     Context mContext;
     ArrayList<FoodItem> foodItems;
 
-    public RecycleViewFoodAdapter(Context context,ArrayList<FoodItem> foodItems){
+    public RecycleViewFoodAdapter(Context context, ArrayList<FoodItem> foodItems) {
         this.mContext = context;
         this.foodItems = foodItems;
     }
@@ -30,13 +31,12 @@ public class RecycleViewFoodAdapter extends RecyclerView.Adapter<RecycleViewFood
 
     @Override
     public RecycleViewFoodAdapter.MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.custom_food_list_rv,parent,false);
+        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.custom_food_list_rv, parent, false);
         return new MyViewHolder(itemView);
     }
 
     @Override
     public void onBindViewHolder(RecycleViewFoodAdapter.MyViewHolder holder, int position) {
-        //set view information
         FoodItem foodItem = foodItems.get(position);
 
         holder.nameFood.setText(foodItem.getName());
@@ -46,24 +46,26 @@ public class RecycleViewFoodAdapter extends RecyclerView.Adapter<RecycleViewFood
 
     @Override
     public int getItemCount() {
-        //how many items
         return foodItems.size();
     }
 
 
-    public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
-        TextView nameFood,priceFood;
+    public class MyViewHolder extends RecyclerView.ViewHolder  {
+        TextView nameFood, priceFood;
         ImageView food;
+
         public MyViewHolder(View itemView) {
             super(itemView);
             food = (ImageView) itemView.findViewById(R.id.imageViewFood);
             nameFood = (TextView) itemView.findViewById(R.id.textViewFoodName);
             priceFood = (TextView) itemView.findViewById(R.id.textViewFoodPrice);
 
-        }
-
-        @Override
-        public void onClick(View view) {
+            food.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Toast.makeText(mContext, nameFood.getText().toString(), Toast.LENGTH_SHORT).show();
+                }
+            });
 
         }
     }
