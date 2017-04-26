@@ -11,8 +11,10 @@ public class FoodItem {
     String price;
     int picture;
 
-    public FoodItem(){}
-    public FoodItem(String name,String price, int picture){
+    public FoodItem() {
+    }
+
+    public FoodItem(String name, String price, int picture) {
         this.name = name;
         this.price = price;
         this.picture = picture;

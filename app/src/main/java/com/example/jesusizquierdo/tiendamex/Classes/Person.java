@@ -10,4 +10,11 @@ public class Person {
     public Person(String nameFull) {
         this.nameFull = nameFull;
     }
+
+    public Person() {
+    }
+
+    public String getNameFull() {
+        return nameFull;
+    }
 }

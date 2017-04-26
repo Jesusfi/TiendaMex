@@ -124,7 +124,6 @@ public class Login extends AppCompatActivity implements SimpleDialogFragment.OnC
                         if (task.isSuccessful()) {
                             Toast.makeText(Login.this, "logged in", Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(Login.this, ScrollingActivity.class));
-                            overridePendingTransition(R.anim.slide_out_left, R.anim.slide_in_right);
                         } else {
                             Toast.makeText(Login.this, "log fail", Toast.LENGTH_SHORT).show();
                         }
@@ -150,7 +149,7 @@ public class Login extends AppCompatActivity implements SimpleDialogFragment.OnC
         FirebaseUser user = firebaseAuth.getCurrentUser();
         if (user != null) {
 
-            databaseReference.child(user.getUid()).setValue(person);
+            databaseReference.child("Users").child(user.getUid()).setValue(person);
         }
         Toast.makeText(Login.this, "Information saved", Toast.LENGTH_SHORT).show();
 
