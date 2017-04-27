@@ -1,5 +1,6 @@
 package com.example.jesusizquierdo.tiendamex.RecycleViews;
 
+import android.app.FragmentManager;
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -10,7 +11,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.jesusizquierdo.tiendamex.Classes.FoodItem;
+import com.example.jesusizquierdo.tiendamex.Dialog.SimpleDialogFragment;
+import com.example.jesusizquierdo.tiendamex.Login;
 import com.example.jesusizquierdo.tiendamex.R;
+import com.example.jesusizquierdo.tiendamex.ScrollingActivity;
 
 import java.util.ArrayList;
 
@@ -22,6 +26,7 @@ public class RecycleViewFoodAdapter extends RecyclerView.Adapter<RecycleViewFood
 
     Context mContext;
     ArrayList<FoodItem> foodItems;
+
 
     public RecycleViewFoodAdapter(Context context, ArrayList<FoodItem> foodItems) {
         this.mContext = context;
@@ -63,7 +68,9 @@ public class RecycleViewFoodAdapter extends RecyclerView.Adapter<RecycleViewFood
             food.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Toast.makeText(mContext, nameFood.getText().toString(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(mContext, nameFood.getText().toString() + getAdapterPosition(), Toast.LENGTH_SHORT).show();
+                    ((ScrollingActivity)mContext).setName(nameFood.getText().toString());
+                    ((ScrollingActivity)mContext).showSimpleDialog();
                 }
             });
 

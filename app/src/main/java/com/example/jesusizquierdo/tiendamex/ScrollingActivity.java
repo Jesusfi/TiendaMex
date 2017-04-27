@@ -11,9 +11,12 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.jesusizquierdo.tiendamex.Classes.FoodItem;
 import com.example.jesusizquierdo.tiendamex.Classes.Person;
+import com.example.jesusizquierdo.tiendamex.Dialog.QuickOrderDialogFragment;
+import com.example.jesusizquierdo.tiendamex.Dialog.SimpleDialogFragment;
 import com.example.jesusizquierdo.tiendamex.RecycleViews.RecycleViewFoodAdapter;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -25,12 +28,14 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class ScrollingActivity extends AppCompatActivity {
+public class ScrollingActivity extends AppCompatActivity implements QuickOrderDialogFragment.OnCompleteListenerQM {
     FirebaseAuth firebaseAuth;
     Button signOut;
     RecyclerView recyclerView;
     RecycleViewFoodAdapter adapter;
     TextView greetingUser;
+
+    String nameFRV;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -100,5 +105,25 @@ public class ScrollingActivity extends AppCompatActivity {
                 // overridePendingTransition(R.anim.slide_out_left,R.anim.slide_in_right);
             }
         });
+
+
+    }
+
+    public void showSimpleDialog() {
+        QuickOrderDialogFragment quickOrderDialogFragment = new QuickOrderDialogFragment();
+        Bundle bundle = new Bundle();
+        bundle.putString("link", nameFRV);
+        quickOrderDialogFragment.setArguments(bundle);
+        quickOrderDialogFragment.show(getSupportFragmentManager(), "Custom Dialog Fragment");
+
+    }
+
+    public void onComplete(String email, String password, String name) {
+        Toast.makeText(ScrollingActivity.this, nameFRV, Toast.LENGTH_SHORT).show();
+
+    }
+
+    public void setName(String theName) {
+        nameFRV = theName;
     }
 }
