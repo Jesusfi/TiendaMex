@@ -55,7 +55,7 @@ public class RecycleViewFoodAdapter extends RecyclerView.Adapter<RecycleViewFood
     }
 
 
-    public class MyViewHolder extends RecyclerView.ViewHolder  {
+    public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView nameFood, priceFood;
         ImageView food;
 
@@ -64,16 +64,25 @@ public class RecycleViewFoodAdapter extends RecyclerView.Adapter<RecycleViewFood
             food = (ImageView) itemView.findViewById(R.id.imageViewFood);
             nameFood = (TextView) itemView.findViewById(R.id.textViewFoodName);
             priceFood = (TextView) itemView.findViewById(R.id.textViewFoodPrice);
-
-            food.setOnClickListener(new View.OnClickListener() {
+            food.setOnClickListener(this);
+           /* food.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     Toast.makeText(mContext, nameFood.getText().toString() + getAdapterPosition(), Toast.LENGTH_SHORT).show();
                     ((ScrollingActivity)mContext).setName(nameFood.getText().toString());
                     ((ScrollingActivity)mContext).showSimpleDialog();
                 }
-            });
+            });*/
 
+
+
+        }
+
+        @Override
+        public void onClick(View view) {
+            FoodItem foodItem = foodItems.get(getAdapterPosition());
+            ((ScrollingActivity)mContext).setName(nameFood.getText().toString(),foodItem.getPicture());
+            ((ScrollingActivity)mContext).showSimpleDialog();
         }
     }
 }

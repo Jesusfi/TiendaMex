@@ -36,6 +36,7 @@ public class ScrollingActivity extends AppCompatActivity implements QuickOrderDi
     TextView greetingUser;
 
     String nameFRV;
+    int pictemp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -113,6 +114,7 @@ public class ScrollingActivity extends AppCompatActivity implements QuickOrderDi
         QuickOrderDialogFragment quickOrderDialogFragment = new QuickOrderDialogFragment();
         Bundle bundle = new Bundle();
         bundle.putString("link", nameFRV);
+        bundle.putInt("key",pictemp);
         quickOrderDialogFragment.setArguments(bundle);
         quickOrderDialogFragment.show(getSupportFragmentManager(), "Custom Dialog Fragment");
 
@@ -123,7 +125,8 @@ public class ScrollingActivity extends AppCompatActivity implements QuickOrderDi
 
     }
 
-    public void setName(String theName) {
+    public void setName(String theName, int pic) {
         nameFRV = theName;
+        pictemp = pic;
     }
 }
