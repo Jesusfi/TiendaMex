@@ -14,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.jesusizquierdo.tiendamex.Classes.FoodItem;
+import com.example.jesusizquierdo.tiendamex.Classes.FoodOrder;
 import com.example.jesusizquierdo.tiendamex.Classes.Person;
 import com.example.jesusizquierdo.tiendamex.Dialog.QuickOrderDialogFragment;
 import com.example.jesusizquierdo.tiendamex.Dialog.SimpleDialogFragment;
@@ -36,7 +37,8 @@ public class ScrollingActivity extends AppCompatActivity implements QuickOrderDi
     TextView greetingUser;
 
     String nameFRV;
-    int pictemp;
+    int pic;
+    int quantity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,15 +54,18 @@ public class ScrollingActivity extends AppCompatActivity implements QuickOrderDi
         recyclerView = (RecyclerView) findViewById(R.id.foodlist);
         greetingUser = (TextView) findViewById(R.id.textViewWelcomeName);
 
-        ArrayList<FoodItem> foodItemArrayList = new ArrayList<>();
+        ArrayList<FoodOrder> foodItemArrayList = new ArrayList<>();
 
-        foodItemArrayList.add(new FoodItem("Taco", "1.99", R.drawable.taco));
-        foodItemArrayList.add(new FoodItem("Burrito", "1.99", R.drawable.burrito));
-        foodItemArrayList.add(new FoodItem("Quesidilla", "1.99", R.drawable.burrito));
-        foodItemArrayList.add(new FoodItem("Chicken", "1.99", R.drawable.taco));
-        foodItemArrayList.add(new FoodItem("Taco", "1.99", R.drawable.taco));
-        foodItemArrayList.add(new FoodItem("Taco", "1.99", R.drawable.taco));
-        foodItemArrayList.add(new FoodItem("Taco", "1.99", R.drawable.taco));
+        foodItemArrayList.add(new FoodOrder(1, new FoodItem("Taco", "1.99", R.drawable.taco)));
+        foodItemArrayList.add(new FoodOrder(2, new FoodItem("Taco", "2.99", R.drawable.taco)));
+        foodItemArrayList.add(new FoodOrder(3, new FoodItem("Taco", "3.99", R.drawable.taco)));
+        foodItemArrayList.add(new FoodOrder(4, new FoodItem("Taco", "4.99", R.drawable.taco)));
+        foodItemArrayList.add(new FoodOrder(1, new FoodItem("Burrito", "1.99", R.drawable.burrito)));
+        foodItemArrayList.add(new FoodOrder(2, new FoodItem("Burrito", "2.99", R.drawable.burrito)));
+        foodItemArrayList.add(new FoodOrder(3, new FoodItem("Burrito", "4.99", R.drawable.burrito)));
+        foodItemArrayList.add(new FoodOrder(4, new FoodItem("Burrito", "6.99", R.drawable.burrito)));
+        foodItemArrayList.add(new FoodOrder(5, new FoodItem("Burrito", "10.99", R.drawable.burrito)));
+
 
         adapter = new RecycleViewFoodAdapter(this, foodItemArrayList);
         recyclerView.setHasFixedSize(true);
@@ -89,6 +94,7 @@ public class ScrollingActivity extends AppCompatActivity implements QuickOrderDi
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                startActivity(new Intent(ScrollingActivity.this, Orders.class));
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
 
@@ -100,7 +106,7 @@ public class ScrollingActivity extends AppCompatActivity implements QuickOrderDi
             @Override
             public void onClick(View view) {
                 firebaseAuth.signOut();
-                finish();
+                //finish();
                 startActivity(new Intent(ScrollingActivity.this, Login.class));
                 finish();
                 // overridePendingTransition(R.anim.slide_out_left,R.anim.slide_in_right);
@@ -114,7 +120,8 @@ public class ScrollingActivity extends AppCompatActivity implements QuickOrderDi
         QuickOrderDialogFragment quickOrderDialogFragment = new QuickOrderDialogFragment();
         Bundle bundle = new Bundle();
         bundle.putString("link", nameFRV);
-        bundle.putInt("key",pictemp);
+        bundle.putInt("key", pic);
+        bundle.putInt("key2", quantity);
         quickOrderDialogFragment.setArguments(bundle);
         quickOrderDialogFragment.show(getSupportFragmentManager(), "Custom Dialog Fragment");
 
@@ -125,8 +132,9 @@ public class ScrollingActivity extends AppCompatActivity implements QuickOrderDi
 
     }
 
-    public void setName(String theName, int pic) {
+    public void setName(String theName, int pictemp, int quantityTemp) {
         nameFRV = theName;
-        pictemp = pic;
+        pic = pictemp;
+        quantity = quantityTemp;
     }
 }

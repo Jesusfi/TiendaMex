@@ -21,7 +21,11 @@
         <activity
             android:name=".ScrollingActivity"
             android:label="@string/title_activity_scrolling"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Orders"
+            android:label="@string/title_activity_orders"
+            android:parentActivityName=".ScrollingActivity"/>
     </application>
 
 </manifest>

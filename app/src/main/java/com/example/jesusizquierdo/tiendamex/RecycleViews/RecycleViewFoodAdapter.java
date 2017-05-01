@@ -11,6 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.jesusizquierdo.tiendamex.Classes.FoodItem;
+import com.example.jesusizquierdo.tiendamex.Classes.FoodOrder;
 import com.example.jesusizquierdo.tiendamex.Dialog.SimpleDialogFragment;
 import com.example.jesusizquierdo.tiendamex.Login;
 import com.example.jesusizquierdo.tiendamex.R;
@@ -25,10 +26,10 @@ import java.util.ArrayList;
 public class RecycleViewFoodAdapter extends RecyclerView.Adapter<RecycleViewFoodAdapter.MyViewHolder> {
 
     Context mContext;
-    ArrayList<FoodItem> foodItems;
+    ArrayList<FoodOrder> foodItems;
 
 
-    public RecycleViewFoodAdapter(Context context, ArrayList<FoodItem> foodItems) {
+    public RecycleViewFoodAdapter(Context context, ArrayList<FoodOrder> foodItems) {
         this.mContext = context;
         this.foodItems = foodItems;
     }
@@ -42,11 +43,11 @@ public class RecycleViewFoodAdapter extends RecyclerView.Adapter<RecycleViewFood
 
     @Override
     public void onBindViewHolder(RecycleViewFoodAdapter.MyViewHolder holder, int position) {
-        FoodItem foodItem = foodItems.get(position);
+        FoodOrder foodItem = foodItems.get(position);
 
-        holder.nameFood.setText(foodItem.getName());
-        holder.priceFood.setText(foodItem.getPrice());
-        holder.food.setImageResource(foodItem.getPicture());
+        holder.nameFood.setText(foodItem.getQuantity() + " " + foodItem.getFoodItem().getName());
+        holder.priceFood.setText(foodItem.getFoodItem().getPrice());
+        holder.food.setImageResource(foodItem.getFoodItem().getPicture());
     }
 
     @Override
@@ -65,24 +66,15 @@ public class RecycleViewFoodAdapter extends RecyclerView.Adapter<RecycleViewFood
             nameFood = (TextView) itemView.findViewById(R.id.textViewFoodName);
             priceFood = (TextView) itemView.findViewById(R.id.textViewFoodPrice);
             food.setOnClickListener(this);
-           /* food.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Toast.makeText(mContext, nameFood.getText().toString() + getAdapterPosition(), Toast.LENGTH_SHORT).show();
-                    ((ScrollingActivity)mContext).setName(nameFood.getText().toString());
-                    ((ScrollingActivity)mContext).showSimpleDialog();
-                }
-            });*/
-
 
 
         }
 
         @Override
         public void onClick(View view) {
-            FoodItem foodItem = foodItems.get(getAdapterPosition());
-            ((ScrollingActivity)mContext).setName(nameFood.getText().toString(),foodItem.getPicture());
-            ((ScrollingActivity)mContext).showSimpleDialog();
+            FoodOrder foodItem = foodItems.get(getAdapterPosition());
+            ((ScrollingActivity) mContext).setName(nameFood.getText().toString(), foodItem.getFoodItem().getPicture(),foodItem.getQuantity());
+            ((ScrollingActivity) mContext).showSimpleDialog();
         }
     }
 }

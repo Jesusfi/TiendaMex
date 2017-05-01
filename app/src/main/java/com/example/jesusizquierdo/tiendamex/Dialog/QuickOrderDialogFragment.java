@@ -21,7 +21,7 @@ import com.example.jesusizquierdo.tiendamex.R;
 
 public class QuickOrderDialogFragment extends DialogFragment {
 
-    TextView foodName;
+    TextView foodName, quantity;
     ImageView foodImage;
 
     public static interface OnCompleteListenerQM {
@@ -49,6 +49,7 @@ public class QuickOrderDialogFragment extends DialogFragment {
 
         foodName = (TextView) v.findViewById(R.id.textViewQOfoodName);
         foodImage = (ImageView) v.findViewById(R.id.imageViewQOfood);
+        quantity = (TextView) v.findViewById(R.id.quantity_quick_order_textView);
 
         Bundle bundle = getArguments();
         String nameOfFood;
@@ -58,6 +59,7 @@ public class QuickOrderDialogFragment extends DialogFragment {
 
         foodName.setText(nameOfFood);
         foodImage.setImageResource(pic);
+        quantity.setText("Quantity : " + bundle.getInt("key2"));
 
         builder.setTitle("Quick Order")
                 .setPositiveButton("Order", new DialogInterface.OnClickListener() {
@@ -67,13 +69,18 @@ public class QuickOrderDialogFragment extends DialogFragment {
 
                     }
                 })
+                .setNeutralButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                    }
+                })
                 .setView(v);
 
         return builder.create();
 
 
     }
-
 
 
 }

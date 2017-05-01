@@ -33,6 +33,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
         android:text="Quantity : 1"
-        android:gravity="center"/>
+        android:gravity="center"
+        android:id="@+id/quantity_quick_order_textView"/>
 
 </LinearLayout>

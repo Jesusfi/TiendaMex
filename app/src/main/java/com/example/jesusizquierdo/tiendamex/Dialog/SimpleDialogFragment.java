@@ -21,9 +21,10 @@ import com.example.jesusizquierdo.tiendamex.R;
 public class SimpleDialogFragment extends DialogFragment {
     EditText email, password, name;
 
-    public static interface OnCompleteListener{
-            public void onComplete(String email,String password,String name);
+    public static interface OnCompleteListener {
+        public void onComplete(String email, String password, String name);
     }
+
     private OnCompleteListener onCompleteListener;
 
     @Override
@@ -31,8 +32,7 @@ public class SimpleDialogFragment extends DialogFragment {
         super.onAttach(context);
         try {
             this.onCompleteListener = (OnCompleteListener) context;
-        }
-        catch (final ClassCastException e) {
+        } catch (final ClassCastException e) {
             throw new ClassCastException(context.toString() + " must implement OnCompleteListener");
         }
     }
@@ -42,12 +42,11 @@ public class SimpleDialogFragment extends DialogFragment {
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         LayoutInflater inflater = getActivity().getLayoutInflater();
-        View v = inflater.inflate(R.layout.custom_dialog_layout,null);
+        View v = inflater.inflate(R.layout.custom_dialog_layout, null);
 
         name = (EditText) v.findViewById(R.id.textviewNameSignUp);
         email = (EditText) v.findViewById(R.id.editTextEmailS);
         password = (EditText) v.findViewById(R.id.editTextPasswordS);
-
 
 
         builder.setTitle("Please Enter your information")
@@ -55,23 +54,18 @@ public class SimpleDialogFragment extends DialogFragment {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
 
-                        // ((MainActivity)getActivity()).registerUser(nameString,addressString,emailString,passwordString);
                         String emailString = email.getText().toString().trim();
                         String passwordString = password.getText().toString().trim();
                         String nameString = name.getText().toString().trim();
 
-                        onCompleteListener.onComplete(emailString,passwordString,nameString);
+                        onCompleteListener.onComplete(emailString, passwordString, nameString);
 
-
-                        // startActivity(new Intent(getActivity(),Hompage.class));
 
                     }
                 })
                 .setView(v);
 
         return builder.create();
-
-
 
 
     }

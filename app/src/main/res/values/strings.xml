@@ -91,4 +91,12 @@
         "when a user tries to pick up one of cards.\n\n"
     </string>
     <string name="action_settings">Settings</string>
+    <string name="title_activity_orders">Orders</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Order now</string>
+    <string name="title_notifications">Past Orders</string>
+
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
