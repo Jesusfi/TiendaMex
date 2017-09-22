@@ -25,7 +25,8 @@
         <activity
             android:name=".Orders"
             android:label="@string/title_activity_orders"
-            android:parentActivityName=".ScrollingActivity"/>
+            android:parentActivityName=".ScrollingActivity" />
+        <activity android:name=".OrderFood"></activity>
     </application>
 
 </manifest>

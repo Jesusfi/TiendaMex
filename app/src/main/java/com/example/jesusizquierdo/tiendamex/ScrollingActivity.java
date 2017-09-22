@@ -65,6 +65,8 @@ public class ScrollingActivity extends AppCompatActivity implements QuickOrderDi
         foodItemArrayList.add(new FoodOrder(3, new FoodItem("Burrito", "4.99", R.drawable.burrito)));
         foodItemArrayList.add(new FoodOrder(4, new FoodItem("Burrito", "6.99", R.drawable.burrito)));
         foodItemArrayList.add(new FoodOrder(5, new FoodItem("Burrito", "10.99", R.drawable.burrito)));
+//askfsakdjf ;a
+        String string = "tis ";
 
 
         adapter = new RecycleViewFoodAdapter(this, foodItemArrayList);
@@ -74,7 +76,7 @@ public class ScrollingActivity extends AppCompatActivity implements QuickOrderDi
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setAdapter(adapter);
 
-        final DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
+        final DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child("Discussion Info");
 
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override

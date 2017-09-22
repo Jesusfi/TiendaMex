@@ -7,6 +7,9 @@ package com.example.jesusizquierdo.tiendamex.Classes;
 public class FoodOrder {
     int quantity;
     FoodItem foodItem;
+    String namePersonOrder;
+    String date;
+    boolean isComplete;
 
     public FoodOrder(int quantity, FoodItem foodItem) {
         this.quantity = quantity;

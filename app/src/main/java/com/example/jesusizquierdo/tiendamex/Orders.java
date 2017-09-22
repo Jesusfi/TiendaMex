@@ -1,5 +1,6 @@
 package com.example.jesusizquierdo.tiendamex;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -10,15 +11,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.widget.TextView;
 
-import com.example.jesusizquierdo.tiendamex.fragments.OrderNow;
+import com.example.jesusizquierdo.tiendamex.fragments.PickFood;
 import com.example.jesusizquierdo.tiendamex.fragments.PastOrders;
+import com.example.jesusizquierdo.tiendamex.fragments.PendingOrders;
 
 public class Orders extends AppCompatActivity {
 
     private TextView mTextMessage;
     private Fragment fragment;
     private FragmentManager fragmentManager;
-
 
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
@@ -28,10 +29,13 @@ public class Orders extends AppCompatActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.navigation_dashboard:
-                    fragment = new OrderNow();
+                    fragment = new PickFood();
                     break;
                 case R.id.navigation_notifications:
                     fragment = new PastOrders();
+                    break;
+                case R.id.navigation_pending_order:
+                    fragment = new PendingOrders();
                     break;
             }
             final FragmentTransaction transaction = fragmentManager.beginTransaction();
@@ -47,11 +51,10 @@ public class Orders extends AppCompatActivity {
         setContentView(R.layout.activity_orders);
 
         fragmentManager = getSupportFragmentManager();
-        fragment = new OrderNow();
+        fragment = new PickFood();
         final FragmentTransaction transaction = fragmentManager.beginTransaction();
         transaction.add(R.id.content, fragment).commit();
 
-        mTextMessage = (TextView) findViewById(R.id.message);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
     }

@@ -1,6 +1,5 @@
 package com.example.jesusizquierdo.tiendamex.RecycleViews;
 
-import android.app.FragmentManager;
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -8,12 +7,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.example.jesusizquierdo.tiendamex.Classes.FoodItem;
 import com.example.jesusizquierdo.tiendamex.Classes.FoodOrder;
-import com.example.jesusizquierdo.tiendamex.Dialog.SimpleDialogFragment;
-import com.example.jesusizquierdo.tiendamex.Login;
 import com.example.jesusizquierdo.tiendamex.R;
 import com.example.jesusizquierdo.tiendamex.ScrollingActivity;
 
@@ -37,7 +32,7 @@ public class RecycleViewFoodAdapter extends RecyclerView.Adapter<RecycleViewFood
 
     @Override
     public RecycleViewFoodAdapter.MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.custom_food_list_rv, parent, false);
+        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.custom_food_quickorder_list_rv, parent, false);
         return new MyViewHolder(itemView);
     }
 

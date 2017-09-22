@@ -21,8 +21,8 @@ import com.example.jesusizquierdo.tiendamex.R;
 public class SimpleDialogFragment extends DialogFragment {
     EditText email, password, name;
 
-    public static interface OnCompleteListener {
-        public void onComplete(String email, String password, String name);
+    public  interface OnCompleteListener {
+         void onComplete(String email, String password, String name);
     }
 
     private OnCompleteListener onCompleteListener;
